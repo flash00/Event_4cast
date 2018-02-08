@@ -50,8 +50,8 @@ body {
 
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #5c69b8;
+  border-color: #6774c6;
 }
 
 .form-control {
@@ -75,7 +75,7 @@ body {
 
 .header {
   font-size: 45px;
-  color: #aaa;
+  color: #fff;
   font-weight: 100;
 }
 
@@ -83,8 +83,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(252, 90, 44, 0.89);
-    color: #fff;
+    background: #fff;
+    color: #aaa;
     padding: 5px;
 }
 

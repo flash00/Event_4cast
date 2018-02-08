@@ -30,7 +30,7 @@ class Zipcode extends React.Component {
           style={{margin: 10}}
           className='btn btn-success'
           onClick={this.handleSubmitZipcode}>
-            Get Weather
+            Check Weather
         </button>
       </div>
     )
