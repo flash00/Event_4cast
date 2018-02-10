@@ -1,6 +1,7 @@
 var React = require('react');
 var Zipcode = require('./Zipcode');
 var Forecast = require('./Forecast');
+var Detail = require('./Detail');
 var ReactRouter = require('react-router-dom');
 var BrowserRouter = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -17,7 +18,7 @@ class App extends React.Component {
                 <Zipcode
                   direction='row'
                   onSubmitZipcode={function(city){
-                    props.hsitory.push({
+                    props.history.push({
                       pathname: 'forecast',
                       search: '?city=' + city
                     });
@@ -37,7 +38,7 @@ class App extends React.Component {
                 onSubmitZipcode={function (city) {
                   props.history.push({
                     pathname: 'forecast',
-                    search: '>city=' + city
+                    search: '?city=' + city
                   })
                 }}
                 zipcode={123} />
@@ -46,6 +47,8 @@ class App extends React.Component {
         }} />
 
         <Route path='/forecast' component={Forecast} />
+
+        <Route path='/details/:city' component={Detail} />
       </div>
     </BrowserRouter>
     )
