@@ -34,7 +34,6 @@ class Zipcode extends React.Component {
     });
   }
   render() {
-    console.log('PROPS', this.props)
     return (
       <div
         className='zipcode-container'
