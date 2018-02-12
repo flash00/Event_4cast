@@ -1,6 +1,6 @@
 var axios = require('axios');
 var _baseURL = 'http://api.openweathermap.org/data/2.5/';
-var _APIKEY = '97c43ee6c29c19cabcb40f6015b92b50';
+
 
 function prepRouteParams (queryStringData) {
   return Object.keys(queryStringData)
@@ -16,8 +16,8 @@ function getQueryStringData (city) {
   return {
     q: city,
     type: 'accurate',
-    APPID: _APIKEY,
-    cnt: 5
+    APPID: process.env.REACT_APP_WEATHER_APIKEY,
+    cnt: 1
   }
 }
 

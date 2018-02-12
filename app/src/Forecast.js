@@ -3,7 +3,7 @@ var api = require('./utils/api');
 var queryString = require('query-string');
 var utils = require('./utils/helpers');
 var getDate = utils.getDate;
-var convertTemp = utils.convertTemp;
+// var convertTemp = utils.convertTemp;
 
 function DayItem (props) {
   var date = getDate(props.day.dt);
