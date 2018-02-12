@@ -1,6 +1,7 @@
 var React = require('react');
 var Zipcode = require('./Zipcode');
 var Forecast = require('./Forecast');
+var Detail = require('./Detail');
 var ReactRouter = require('react-router-dom');
 var BrowserRouter = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -47,6 +48,8 @@ class App extends React.Component {
         }} />
 
         <Route path='/forecast' component={Forecast} />
+
+        <Route path='/details/:city' component={Detail} />
       </div>
     </BrowserRouter>
     )

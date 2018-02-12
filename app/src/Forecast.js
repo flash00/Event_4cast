@@ -3,18 +3,19 @@ var api = require('./utils/api');
 var queryString = require('query-string');
 var utils = require('./utils/helpers');
 var getDate = utils.getDate;
-// var convertTemp = utils.convertTemp;
+var convertTemp = utils.convertTemp;
+var DayItem = require('./DayItem');
 
-function DayItem (props) {
-  var date = getDate(props.day.dt);
-  var icon = props.day.weather[0].icon;
-  return (
-    <div className='dayContainer'>
-      <img className='weather' src={process.env.PUBLIC_URL + '/images/weather-icons/' + icon + '.svg'} alt='Weather' />
-      <h2 className='subheader'>{date}</h2>
-    </div>
-  )
-}
+// function DayItem (props) {
+//   var date = getDate(props.day.dt);
+//   var icon = props.day.weather[0].icon;
+//   return (
+//     <div className='dayContainer'>
+//       <img className='weather' src={process.env.PUBLIC_URL + '/images/weather-icons/' + icon + '.svg'} alt='Weather' />
+//       <h2 className='subheader'>{date}</h2>
+//     </div>
+//   )
+// }
 
 class Forecast extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Forecast extends React.Component {
     }
 
     this.makeRequest = this.makeRequest.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     this.city = queryString.parse(this.props.location.search).city;
@@ -51,6 +53,13 @@ class Forecast extends React.Component {
       })
     }.bind(this))
   }
+  handleClick(city) {
+    city.city = this.city;
+    this.props.history.push({
+      pathname: '/details/' + this.city,
+      state: city,
+    })
+  }
   render() {
     return this.state.loading === true
       ? <h1 className='forecast-header'> Loading </h1>
@@ -58,8 +67,8 @@ class Forecast extends React.Component {
           <h1 className='forecast-header'>{this.city}</h1>
           <div className='forecast-container'>
             {this.state.forecastData.list.map(function (listItem) {
-              return <DayItem key={listItem.dt} day={listItem} />
-            })}
+              return <DayItem onClick={this.handleClick.bind(this, listItem)} key={listItem.dt} day={listItem} />
+            }, this)}
         </div>
       </div>
   }
