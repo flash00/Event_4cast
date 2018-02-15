@@ -1,16 +1,19 @@
 var React = require('react');
-var weather_api = require('./utils/weather_api');
+var event_api = require('./utils/event_api');
 var queryString = require('query-string');
+// var EventItem = require('./EventItem');
+// var Zipcode = require('./Zipcode');
+// var App = require('./App');
 // var utils = require('./utils/helpers');
 // var getDate = utils.getDate;
 // var convertTemp = utils.convertTemp;
-var DayItem = require('./DayItem');
+// var DayItem = require('./DayItem');
 
-class Forecast extends React.Component {
+class Event extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      forecastData: [],
+      eventData: [],
       loading: true
     }
 
@@ -32,12 +35,12 @@ class Forecast extends React.Component {
       }
     })
 
-  weather_api.getForecast(city)
+  event_api.getEvents(city)
     .then(function (res) {
       this.setState(function () {
         return {
           loading: false,
-          forecastData: res,
+          eventData: res,
         }
       })
     }.bind(this))
@@ -45,23 +48,23 @@ class Forecast extends React.Component {
   handleClick(city) {
     city.city = this.city;
     this.props.history.push({
-      pathname: '/details/' + this.city,
+      pathname: '/event_items/' + this.city,
       state: city,
     })
   }
   render() {
     return this.state.loading === true
-      ? <h1 className='forecast-header'> Loading </h1>
+      ? <h1 className='event-header'> Loading </h1>
       : <div>
-          <h1 className='forecast-header'>{this.city}</h1>
-          <div className='forecast-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
+          <h1 className='event-header'>{this.city}</h1>
+          <div className='event-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
           >
-            {this.state.forecastData.list.map(function (listItem) {
-              return <DayItem onClick={this.handleClick.bind(this, listItem)} key={listItem.dt} day={listItem} />
+            {this.state.eventData.list.map(function (listItem) {
+              return <EventItem onClick={this.handleClick.bind(this, listItem)} key={listItem.url} />
             }, this)}
         </div>
       </div>
   }
 }
 
-module.exports = Forecast;
+module.exports = Event;

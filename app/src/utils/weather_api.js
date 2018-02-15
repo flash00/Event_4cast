@@ -1,7 +1,6 @@
 var axios = require('axios');
 var _weather_baseURL = 'http://api.openweathermap.org/data/2.5/';
 
-
 function prepRouteParams (queryStringData) {
   return Object.keys(queryStringData)
     .map(function (key) {
@@ -17,7 +16,7 @@ function getQueryStringData (city) {
     q: city,
     type: 'accurate',
     APPID: process.env.REACT_APP_WEATHER_APIKEY,
-    cnt: 40
+    cnt: 10
   }
 }
 
@@ -45,3 +44,5 @@ module.exports = {
   getCurrentWeather: getCurrentWeather,
   getForecast: getForecast
 };
+
+

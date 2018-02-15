@@ -25,7 +25,14 @@ body {
   align-items: center;
 }
 
-.zipcode-container {
+.weather-zipcode-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50;
+}
+
+.event-zipcode-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,10 +59,15 @@ body {
   color: #fff;
   background-color: #5c69b8;
   border-color: #6774c6;
+}.btn-success-event {
+  color: #fff;
+  background-color: #5c69b8;
+  border-color: #6774c6;
 }
 
 .form-control {
     display: block;
+    align-items: center;
     width: 100%;
     height: 34px;
     padding: 6px 12px;
@@ -77,6 +89,7 @@ body {
   font-size: 45px;
   color: #fff;
   font-weight: 100;
+  padding: 0px;
 }
 
 .navbar {
@@ -126,5 +139,47 @@ body {
     margin: 0 auto;
     text-align: center;
 }
+.event-header {
+  font-size: 45px;
+  color: #fff;
+  font-weight: 100;
+}
 
+.event-container {
+    font-size: 34px;
+    font-weight: 100;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.eventbrite-logo {
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  justify-content: space-between;
+  height: 20px;
+  width: auto;
+}
+
+.weather-logo {
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  justify-content: space-between;
+  height: 20px;
+  width: auto
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    vertical-align: bottom;
+    justify-content: space-between;
+    background: #fff;
+    color: #aaa;
+    padding: 5px;
+    height: 10%;
+    width: 10%;
+}
 
