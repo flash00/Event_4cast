@@ -2,12 +2,8 @@ var React = require('react');
 var event_api = require('./utils/event_api');
 var queryString = require('query-string');
 // var EventItem = require('./EventItem');
-// var Zipcode = require('./Zipcode');
-// var App = require('./App');
-// var utils = require('./utils/helpers');
-// var getDate = utils.getDate;
-// var convertTemp = utils.convertTemp;
-// var DayItem = require('./DayItem');
+// var EventZipcode = require('./EventZipcode');
+// var ReactRouter = require('react-router-dom');
 
 class Event extends React.Component {
   constructor(props) {
@@ -35,7 +31,7 @@ class Event extends React.Component {
       }
     })
 
-  event_api.getEvents(city)
+    event_api.getEvents(city)
     .then(function (res) {
       this.setState(function () {
         return {
@@ -48,7 +44,7 @@ class Event extends React.Component {
   handleClick(city) {
     city.city = this.city;
     this.props.history.push({
-      pathname: '/event_items/' + this.city,
+      pathname: '/event-item/' + this.city,
       state: city,
     })
   }
@@ -59,11 +55,13 @@ class Event extends React.Component {
           <h1 className='event-header'>{this.city}</h1>
           <div className='event-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
           >
-            {this.state.eventData.list.map(function (listItem) {
-              return <EventItem onClick={this.handleClick.bind(this, listItem)} key={listItem.url} />
+
+            {this.state.eventData.list.map (function (listItem) {
+              return <eventItem onClick={this.handleClick.bind(this, listItem)} key={listItem.url}  />
             }, this)}
+
+          </div>
         </div>
-      </div>
   }
 }
 

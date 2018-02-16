@@ -43,7 +43,7 @@ class WeatherZipcode extends React.Component {
         <input
           className='form-control'
           onChange={this.handleUpdateWeatherZipcode}
-          placeholder='Enter Search City'
+          placeholder='      Enter Search City'
           type='text'
           value={this.state.weather_zipcode} />
         <button

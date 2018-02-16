@@ -45,7 +45,7 @@ class EventZipcode extends React.Component {
         <input
           className='form-control'
           onChange={this.handleUpdateEventZipcode}
-          placeholder='Enter Search City'
+          placeholder='      Enter Search City'
           type='text'
           value={this.state.event_zipcode} />
         <button

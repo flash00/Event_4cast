@@ -3,8 +3,8 @@ var EventZipcode = require('./EventZipcode');
 var WeatherZipcode = require('./WeatherZipcode');
 var Forecast = require('./Forecast');
 var Detail = require('./Detail');
-// var Event = require('./Event');
-// var EventItem = require('./EventItem');
+var EventItem = require('./EventItem');
+var Event = require('./Event');
 var ReactRouter = require('react-router-dom');
 var BrowserRouter = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -19,31 +19,8 @@ class App extends React.Component {
           <Route render={function (props) {
             return (
               <div className='navbar'>
-                <h1>Search Events</h1>
-                <EventZipcode
-                  direction='row'
-                  onSubmitEventZipcode={function(city){
-                    props.history.push({
-                      pathname: '/event',
-                      search: '?city=' + city
-                    });
-                  }}
-                  event_zipcode={123} />
-                <h1>Check Weather</h1>
-                <WeatherZipcode
-                  direction='row'
-                  onSubmitWeatherZipcode={function(city){
-                    props.history.push({
-                      pathname: '/forecast',
-                      search: '?city=' + city
-                    });
-                  }}
-                  weather_zipcode={123} />
-
-                <div>
                   <img className='eventbrite-logo' src={'/images/Eventbrite_wordmark_orange.jpg'} alt='Eventbrite' />
                   <img className='weather-logo' src={'/images/icon-openweathermap-1.png'} alt='OpenWeatherMap' />
-              </div>
               </div>            )
           }} />
 
@@ -72,15 +49,19 @@ class App extends React.Component {
                   })
                }}
                weather_zipcode={123} />
-             <div><img className='sunnglasses' src={'/images/sunglasses.png'} alt='Sunglasses' /></div>
+               <br></br>
+              <div>
+                <img className='sunnglasses' src={'/images/sunglasses.png'} alt='Sunglasses' />
+              </div>
             </div>
           )
         }} />
 
 
         <Route path='/forecast' component={Forecast} />
+        <Route path='/event' component={Event} />
         <Route path='/details/:city' component={Detail} />
-        <Route path='/event/:city' component={Event} />
+        <Route path='/event-item/:city' component={EventItem} />
       </div>
     </BrowserRouter>
     )

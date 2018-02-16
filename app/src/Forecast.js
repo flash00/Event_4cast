@@ -1,9 +1,6 @@
 var React = require('react');
 var weather_api = require('./utils/weather_api');
 var queryString = require('query-string');
-// var utils = require('./utils/helpers');
-// var getDate = utils.getDate;
-// var convertTemp = utils.convertTemp;
 var DayItem = require('./DayItem');
 
 class Forecast extends React.Component {
@@ -42,6 +39,7 @@ class Forecast extends React.Component {
       })
     }.bind(this))
   }
+
   handleClick(city) {
     city.city = this.city;
     this.props.history.push({
