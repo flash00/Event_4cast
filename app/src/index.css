@@ -59,7 +59,9 @@ body {
   color: #fff;
   background-color: #5c69b8;
   border-color: #6774c6;
-}.btn-success-event {
+}
+
+.btn-success-event {
   color: #fff;
   background-color: #5c69b8;
   border-color: #6774c6;
@@ -110,6 +112,17 @@ body {
     max-width: 1200px;
     margin: 50px auto;
   }
+
+.event-container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
   .dayContainer {
     display: flex;
     align-items: center;
@@ -123,6 +136,14 @@ body {
     font-weight: 100;
     text-align: center;
   }
+
+  .event-header {
+    font-size: 65px;
+    color: #333;
+    font-weight: 100;
+    text-align: center;
+  }
+
   .subheader {
     font-size: 30px;
     color: #333;
@@ -133,19 +154,6 @@ body {
   }
 
 .description-container {
-    font-size: 34px;
-    font-weight: 100;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-.event-header {
-  font-size: 45px;
-  color: #fff;
-  font-weight: 100;
-}
-
-.event-container {
     font-size: 34px;
     font-weight: 100;
     max-width: 400px;

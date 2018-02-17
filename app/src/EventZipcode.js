@@ -1,5 +1,4 @@
 var React = require('react');
-var PropTypes = require('prop-types');
 // var App = require('./App');
 // var ReactRouter = require('react-router-dom');
 var event_api = require('./utils/event_api');
@@ -65,8 +64,5 @@ EventZipcode.defaultProps = {
   direction: 'column'
 }
 
-EventZipcode.propTypes = {
-  direction: PropTypes.string,
-}
 
 module.exports = EventZipcode;
