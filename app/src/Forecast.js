@@ -52,6 +52,8 @@ class Forecast extends React.Component {
       ? <h1 className='forecast-header'> Loading </h1>
       : <div>
           <h1 className='forecast-header'>{this.city}</h1>
+          <h4 className='forecast-header4'>multi-day forecast at 3 hour intervals</h4>
+
           <div className='forecast-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
           >
             {this.state.forecastData.list.map(function (listItem) {

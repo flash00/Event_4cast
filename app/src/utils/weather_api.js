@@ -16,7 +16,7 @@ function getQueryStringData (city) {
     q: city,
     type: 'accurate',
     APPID: process.env.REACT_APP_WEATHER_APIKEY,
-    cnt: 10
+    cnt: 12
   }
 }
 

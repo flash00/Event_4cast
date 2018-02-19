@@ -1,7 +1,8 @@
 var React = require('react');
 var event_api = require('./utils/event_api');
 var queryString = require('query-string');
-// var EventList = require('./EventList');
+var EventItem = require('./EventItem');
+
 class Event extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class Event extends React.Component {
 
     this.makeRequest = this.makeRequest.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
   }
   componentDidMount() {
     this.city = queryString.parse(this.props.location.search).city;
@@ -35,9 +37,12 @@ class Event extends React.Component {
           loading: false,
           eventData: res,
         }
+
       })
     }.bind(this))
+
   }
+
   handleClick(city) {
     city.city = this.city;
     this.props.history.push({
@@ -45,21 +50,28 @@ class Event extends React.Component {
       state: city,
     })
   }
+
+
+
   render() {
-   const { eventData } = this.state;
-   return (
-    <div>
+    const eventData = this.state.eventData
+    console.log(eventData)
+    const arr = Object.entries(eventData)
+    console.log(arr)
+
+    return this.state.loading === true
+      ? <h1 className='event-header'> Loading </h1>
+      : <div>
           <h1 className='event-header'>{this.city}</h1>
           <div className='event-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
           >
-          {eventData
-            ? <ul><li> Events: {eventData.url}</li></ul>
-            :<p>Loading...</p>
-          }
+          {arr[1].map(function (listItem) {
+            return <EventItem onClick={this.handleClick.bind(this, listItem)} key={listItem.id} event={listItem} />
+            }, this)}
           </div>
-      </div>
-    )
+        </div>
   }
 }
 
 module.exports = Event;
+
