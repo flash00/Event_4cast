@@ -1,2 +1,5 @@
 # Event_4cast
-Easily check weather forecast for your event.
+Easily check weather forecast for your event. 
+React.
+Eventbrite API.
+Openweathermap API. ☔️
