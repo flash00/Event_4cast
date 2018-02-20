@@ -4,7 +4,6 @@ var WeatherZipcode = require('./WeatherZipcode');
 var Forecast = require('./Forecast');
 var Detail = require('./Detail');
 var Event = require('./Event');
-var EventItem = require('./EventItem');
 var ReactRouter = require('react-router-dom');
 var BrowserRouter = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -60,7 +59,6 @@ class App extends React.Component {
 
         <Route path='/forecast' component={Forecast} />
         <Route path='/event' component={Event} />
-        <Route path='/event-item/:city' component={EventItem} />
         <Route path='/details/:city' component={Detail} />
       </div>
     </BrowserRouter>

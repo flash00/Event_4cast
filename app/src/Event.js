@@ -1,7 +1,6 @@
 var React = require('react');
 var event_api = require('./utils/event_api');
 var queryString = require('query-string');
-var EventItem = require('./EventItem');
 
 class Event extends React.Component {
   constructor(props) {
