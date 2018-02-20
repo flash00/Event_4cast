@@ -113,16 +113,6 @@ body {
     margin: 50px auto;
   }
 
-.event-container {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 50px auto;
-}
-
   .dayContainer {
     display: flex;
     align-items: center;
@@ -172,6 +162,26 @@ body {
     text-align: center;
 }
 
+.event-container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.event-description-container {
+    font-size: 15px;
+    font-weight: 100;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: #333;
+    font-weight: 100;
+}
+
 .eventbrite-logo {
   display: flex;
   flex-direction: row;
@@ -189,6 +199,5 @@ body {
   height: 40px;
   width: auto
 }
-
 
 

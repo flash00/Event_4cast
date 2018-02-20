@@ -56,20 +56,35 @@ class Event extends React.Component {
   render() {
     const eventData = this.state.eventData
     console.log(eventData)
-    const arr = Object.entries(eventData)
-    console.log(arr)
+    if (eventData.length === 0)
+      {
+        return null
+      }
+    else
+      {
+        const Arr = Object.entries(eventData)
+        const Brites = Object.entries(Arr[1][1])
+        console.log (Brites)
+        return this.state.loading === true
+        ? <h1 className='event-header'> Loading </h1>
+        : <div>
+            <h1 className='event-header'>{this.city}</h1>
+            <div className='event-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
+            >
+        <ul className='daycontainer' style={{listStyleType:"none"}}>
+          {Brites.map((brite, index) =>
+              <p className='event-description-container' key={index}>
+              <li style={{fontWeight:"bold", backgroundColor: "#eaeaea"}}>{brite[1].name.text}</li>
+              <li style={{ backgroundColor: "#eaeaea"}}>{brite[1].start.local}</li>
+              <li style={{ backgroundColor: "#FAFAFA"}}>{brite[1].description.text}</li>
+              <br></br>
+              </p>
+          )}
+        </ul>
 
-    return this.state.loading === true
-      ? <h1 className='event-header'> Loading </h1>
-      : <div>
-          <h1 className='event-header'>{this.city}</h1>
-          <div className='event-container' style={{background:"linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)"}}
-          >
-          {arr[1].map(function (listItem) {
-            return <EventItem onClick={this.handleClick.bind(this, listItem)} key={listItem.id} event={listItem} />
-            }, this)}
+            </div>
           </div>
-        </div>
+      }
   }
 }
 

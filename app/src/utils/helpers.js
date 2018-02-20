@@ -29,8 +29,8 @@ function convertTemp (kelvin) {
   return parseInt(((kelvin - 273.15)* 1.8000 + 32.00), 10)
 }
 
-function getDate (unixTimestmap) {
-  var date = new Date(unixTimestmap * 1000);
+function getDate (unixTimestamp) {
+  var date = new Date(unixTimestamp * 1000);
   var day = daysMap[date.getDay()]
   var month = monthsMap[date.getMonth()] + ' ' + date.getDate();
   return day + ', ' + month;
