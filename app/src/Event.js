@@ -51,11 +51,8 @@ class Event extends React.Component {
     })
   }
 
-
-
-  render() {
+render() {
     const eventData = this.state.eventData
-    console.log(eventData)
     if (eventData.length === 0)
       {
         return null
@@ -64,7 +61,6 @@ class Event extends React.Component {
       {
         const Arr = Object.entries(eventData)
         const Brites = Object.entries(Arr[1][1])
-        console.log (Brites)
         return this.state.loading === true
         ? <h1 className='event-header'> Loading </h1>
         : <div>
@@ -87,6 +83,7 @@ class Event extends React.Component {
       }
   }
 }
+
 
 module.exports = Event;
 
